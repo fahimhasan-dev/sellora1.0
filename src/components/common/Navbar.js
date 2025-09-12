@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
-import { FaShoppingCart,  FaBars, FaTimes } from "react-icons/fa";
+import { FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { Imperial_Script } from "next/font/google";
+const imperial = Imperial_Script({
+  weight: "400",
+  subsets: ["latin"],
+});
 export default function Navbar() {
   const pathName = usePathname();
 
@@ -15,8 +19,12 @@ export default function Navbar() {
     <nav className="bg-white shadow-md fixed top-0 w-full z-50">
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-[#6c7fd8]">
-          Sellora
+        <Link
+          href="/"
+          className={`${imperial.className} text-4xl font-[1000px] text-[#6c7fd8] tracking-tight `}
+        
+        >
+          Selora
         </Link>
 
         {/* Desktop Menu */}
@@ -56,9 +64,6 @@ export default function Navbar() {
           </div>
 
           {/* Cart Icon */}
-          <button className="p-2 rounded-full hover:bg-[#4557a8] text-[#6c7fd8] hover:text-white">
-            <FaShoppingCart size={18} />
-          </button>
 
           {/* Auth Buttons for md+ */}
           <div className="hidden md:flex space-x-2">
@@ -75,6 +80,9 @@ export default function Navbar() {
               Register
             </Link>
           </div>
+          <button className="p-2 rounded-full hover:bg-[#4557a8] text-[#6c7fd8] hover:text-white">
+            <FaShoppingCart size={18} />
+          </button>
 
           {/* Mobile Menu Button */}
           <button

@@ -1,6 +1,7 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
+import Footer from "@/components/common/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,7 +42,7 @@ export const metadata = {
     siteName: "Selora",
     images: [
       {
-        url: "/og-image.jpg", 
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Selora Fresh Vegetables, Fruits & Spices",
@@ -65,17 +66,18 @@ export const metadata = {
   metadataBase: new URL("https://selora.com"),
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
-
       <body className={`${inter.variable} ${poppins.variable} antialiased`}>
         <nav>
-        <Navbar></Navbar>
-      </nav>
-        {children}
+          <Navbar></Navbar>
+        </nav>
+        <main>{children}</main>
+
+        <footer>
+          <Footer></Footer>
+        </footer>
       </body>
     </html>
   );
