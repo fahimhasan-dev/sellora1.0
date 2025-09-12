@@ -25,7 +25,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-10 bg-gray-100">
+    <section className="py-10 ">
       <div className="max-w-[90%] mx-auto  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4">
         {features.map((feature, index) => (
           <div

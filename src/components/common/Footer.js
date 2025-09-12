@@ -10,7 +10,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 text-gray-700 mt-12">
+    <footer className="bg-[#6c80d813] text-gray-700 mt-12">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Brand Section */}
         <div>
@@ -124,7 +124,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-gray-200 text-center py-4 text-sm text-gray-600">
+      <div className="bg-white text-center py-4 text-sm text-gray-600">
         © {new Date().getFullYear()} Sellora. All rights reserved.
       </div>
     </footer>
