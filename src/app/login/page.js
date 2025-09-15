@@ -1,25 +1,61 @@
 "use client";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+
   const handleLogin = async (e) => {
-   
+    e.preventDefault();
     const form = e.target;
-    const name = form.email.value;
+    const email = form.email.value;
     const password = form.password.value;
-    console.log(name, password);
+
+    try {
+      const res = await signIn("credentials", {
+        redirect: false, // so we can check result first
+        email,
+        password,
+      });
+
+      if (res?.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+          text: "Welcome back!",
+          timer: 2000,
+          showConfirmButton: false,
+        }).then(() => {
+          window.location.href = "/"; // redirect after success
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: res?.error || "Invalid email or password.",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Something went wrong",
+        text: error.message,
+      });
+    }
   };
+
   return (
     <section className="flex h-screen items-center justify-center bg-gray-50 pt-20 px-4">
-      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-6  pt-10 space-y-6">
+      <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-6 pt-10 space-y-6">
         <h2 className="text-3xl font-bold text-center text-gray-800">
           Welcome Back
         </h2>
 
         <form onSubmit={handleLogin} className="space-y-4">
+          {/* Email */}
           <div>
             <label
               htmlFor="email"
@@ -36,6 +72,7 @@ export default function LoginPage() {
             />
           </div>
 
+          {/* Password */}
           <div>
             <label
               htmlFor="password"
@@ -69,7 +106,7 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+            className="w-full bg-[#6c7fd8] text-white py-2 rounded-lg hover:bg-[#4557a8] transition"
           >
             Login
           </button>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Fade } from "react-awesome-reveal";
-import UserInfo from "../common/UserInfo";
+
 const categories = [
   {
     name: "Juice",
@@ -60,7 +60,6 @@ export default function ProductsCategories() {
         <div className="text-center pb-10">
           <p className="text-[#6c7fd8] font-medium">Latest collection</p>
           <h2 className="text-3xl font-bold">Shop by category</h2>
-          <UserInfo></UserInfo>
         </div>
 
         {/* Scrollable Categories */}

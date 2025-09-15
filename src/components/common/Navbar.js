@@ -37,10 +37,10 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="/products"
+            href="ProductsPage"
             className="text-gray-800 font-semibold hover:text-[#6c7fd8]"
           >
-            Products
+            All Products
           </Link>
           <Link
             href="/dashboard"
@@ -111,10 +111,10 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              href="/products"
+              href="ProductsPage"
               className="text-gray-800 font-semibold hover:text-[#6c7fd8]"
             >
-              Products
+              ALL Products
             </Link>
             <Link
               href="/dashboard"
