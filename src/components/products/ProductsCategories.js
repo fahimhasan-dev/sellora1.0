@@ -1,9 +1,6 @@
-"use client";
 import Image from "next/image";
-import { useRef } from "react";
-
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-
+import { Fade } from "react-awesome-reveal";
+import UserInfo from "../common/UserInfo";
 const categories = [
   {
     name: "Juice",
@@ -53,66 +50,38 @@ const categories = [
     img: "https://i.ibb.co.com/pvDjZ4sR/32-cp-categorylist.png",
     bg: "bg-orange-50",
   },
-  
 ];
 
 export default function ProductsCategories() {
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = 250; 
-      if (direction === "left") {
-        scrollRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-      } else {
-        scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    }
-  };
-
   return (
-    <section className="pb-10 ">
+    <section className=" ">
       <div className="w-[90%]  mx-auto ">
         {/* Header */}
-        <div className="text-center">
+        <div className="text-center pb-10">
           <p className="text-[#6c7fd8] font-medium">Latest collection</p>
           <h2 className="text-3xl font-bold">Shop by category</h2>
-        </div>
-        <div className="flex items-center justify-end mb-8">
-          <div className="flex gap-2">
-            <button
-              onClick={() => scroll("left")}
-              className="w-10 h-10 flex items-center justify-center rounded-md bg-gray-100 hover:bg-gray-200"
-            >
-              <IoIosArrowBack size={20} />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              className="w-10 h-10 flex items-center justify-center rounded-md bg-gray-100 hover:bg-gray-200"
-            >
-              <IoIosArrowForward size={20} />
-            </button>
-          </div>
+          <UserInfo></UserInfo>
         </div>
 
         {/* Scrollable Categories */}
         <div className="grid grid-cols-2 md:grid-cols-4  lg:grid-cols-6 xl:grid-cols-8 gap-6">
           {categories.map((cat) => (
-            <div
-              key={cat.name}
-              className={`${cat.bg} rounded-xl p-4 flex flex-col items-center shadow-sm hover:shadow-md transition`}
-            >
-              <div className="w-36 h-36  relative">
-                <Image
-                  src={cat.img}
-                  alt={cat.name}
-                  fill
-                  className="object-contain px-2 "
-                />
+            <Fade key={cat.name} direction="up" triggerOnce>
+              <div
+                className={`${cat.bg} rounded-xl p-4 flex flex-col items-center shadow-sm hover:shadow-md transition`}
+              >
+                <div className="w-36 h-36  relative">
+                  <Image
+                    src={cat.img}
+                    alt={cat.name}
+                    fill
+                    className="object-contain px-2 "
+                  />
+                </div>
+                <h3 className="mt-2 font-semibold text-gray-800">{cat.name}</h3>
+                <p className="text-gray-500 text-sm">Items ({cat.items})</p>
               </div>
-              <h3 className="mt-2 font-semibold text-gray-800">{cat.name}</h3>
-              <p className="text-gray-500 text-sm">Items ({cat.items})</p>
-            </div>
+            </Fade>
           ))}
         </div>
       </div>

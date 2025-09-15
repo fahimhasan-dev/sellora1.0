@@ -7,17 +7,17 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="mt-15">
-      <hero>
-        <Banner></Banner>
-      </hero>
+      <Banner></Banner>
+
       <main>
         <section>
           <Features></Features>
         </section>
-        <section className="lg:mt-25">
+        
+        <section className="lg:mt-36">
           <ProductsCategories></ProductsCategories>
         </section>
-        <section className="lg:mt-25">
+        <section className="lg:mt-44">
           <NewProducts></NewProducts>
         </section>
       </main>

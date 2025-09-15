@@ -2,6 +2,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
+import SectionProvider from "@/Providers/SectionProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -69,6 +70,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
+      <SectionProvider>
       <body
         className={`${inter.variable} ${poppins.variable} antialiased bg-[#6c80d813]`}
       >
@@ -80,7 +82,7 @@ export default function RootLayout({ children }) {
         <footer>
           <Footer></Footer>
         </footer>
-      </body>
+      </body></SectionProvider>
     </html>
   );
 }

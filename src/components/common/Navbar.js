@@ -4,6 +4,7 @@ import { FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Imperial_Script } from "next/font/google";
+import LoginButton from "./LoginButton";
 const imperial = Imperial_Script({
   weight: "400",
   subsets: ["latin"],
@@ -67,12 +68,13 @@ export default function Navbar() {
 
           {/* Auth Buttons for md+ */}
           <div className="hidden md:flex space-x-2">
-            <Link
+            {/* <Link
               href="/login"
               className="btn bg-[#6c7fd8] border-none rounded text-white px-4 py-2 hover:bg-[#4557a8]"
             >
               Login
-            </Link>
+            </Link> */}
+            <LoginButton></LoginButton>
             <Link
               href="/register"
               className="btn bg-[#6c7fd8] border-none rounded text-white px-4 py-2 hover:bg-[#4557a8]"
@@ -141,6 +143,7 @@ export default function Navbar() {
               >
                 Login
               </Link>
+              
               <Link
                 href="/register"
                 className="btn bg-[#6c7fd8] border-none rounded text-white px-4 py-2 hover:bg-[#4557a8]"
