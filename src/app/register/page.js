@@ -1,22 +1,24 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { registerUser } from "../actions/auth/registerUser";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
 
-  const strongRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  // Password regex: at least 6 characters, include uppercase, lowercase, number
+  const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
 
   const handlePasswordChange = (e) => {
     const value = e.target.value;
     if (!strongRegex.test(value)) {
       setPasswordError(
-        "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character."
+        "Password must be at least 6 characters and include uppercase, lowercase, and a number."
       );
     } else {
       setPasswordError("");
@@ -25,7 +27,7 @@ export default function RegisterPage() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.currentTarget;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
@@ -47,11 +49,16 @@ export default function RegisterPage() {
         Swal.fire({
           icon: "success",
           title: "Registration Successful",
-          text: "Your account has been created!",
-          timer: 2000,
+          text: "Redirecting to home page...",
+          timer: 1500,
           showConfirmButton: false,
         });
+
         form.reset();
+        // Redirect to home page after 1.5s
+        setTimeout(() => {
+          router.push("/");
+        }, 1500);
       } else {
         Swal.fire({
           icon: "error",
@@ -78,10 +85,7 @@ export default function RegisterPage() {
         <form onSubmit={handleRegister} className="space-y-4">
           {/* Name */}
           <div>
-            <label
-              htmlFor="name"
-              className="block text-gray-700 text-sm font-medium"
-            >
+            <label htmlFor="name" className="block text-gray-700 text-sm font-medium">
               Full Name
             </label>
             <input
@@ -95,10 +99,7 @@ export default function RegisterPage() {
 
           {/* Email */}
           <div>
-            <label
-              htmlFor="email"
-              className="block text-gray-700 text-sm font-medium"
-            >
+            <label htmlFor="email" className="block text-gray-700 text-sm font-medium">
               Email
             </label>
             <input
@@ -112,10 +113,7 @@ export default function RegisterPage() {
 
           {/* Password */}
           <div>
-            <label
-              htmlFor="password"
-              className="block text-gray-700 text-sm font-medium"
-            >
+            <label htmlFor="password" className="block text-gray-700 text-sm font-medium">
               Password
             </label>
             <div className="relative">
@@ -138,13 +136,6 @@ export default function RegisterPage() {
             {passwordError && (
               <p className="mt-1 text-sm text-red-600">{passwordError}</p>
             )}
-          </div>
-
-          {/* Forgot Password */}
-          <div className="text-sm text-right">
-            <p className="text-indigo-600 hover:underline cursor-pointer">
-              Forgot password?
-            </p>
           </div>
 
           <button

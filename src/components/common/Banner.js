@@ -108,7 +108,7 @@ export default function HeroSlider() {
                   className="
                     w-full h-full object-contain
                     md:w-auto md:h-auto
-                    opacity-60 md:opacity-100
+                    opacity-25 md:opacity-100
                   "
                 />
               </motion.div>

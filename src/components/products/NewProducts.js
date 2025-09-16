@@ -4,12 +4,14 @@ import {  Zoom } from "react-awesome-reveal";
 
 import Image from "next/image";
 import dbConnect from "@/lib/dbConnect";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default async function NewProducts() {
   const products = await dbConnect("products").find({}).toArray();
 
   return (
-    <section className="pb-10 max-w-[90%] mx-auto ">
+    <section className="pb-10 max-w-[90%]  mx-auto ">
       <div className="text-center mb-8">
         <p className="text-[#6c7fd8] font-medium">✱ Trending item</p>
         <h2 className="text-3xl font-bold">Our newest products</h2>
@@ -59,9 +61,8 @@ export default async function NewProducts() {
                   {"☆".repeat(5 - product.rating)}
                 </div>
                 <p className="text-[#6c7fd8] font-bold">${product.price}.00</p>
-                <button className="w-full mt-3 bg-[#6c7fd8] text-white py-2 rounded hover:bg-[#6b81e0]">
-                  Vew Details
-                </button>
+                <Button className="w-full mt-3 rounded" asChild><Link href={`/productsDetails/${product._id}`} > Vew Details</Link></Button>
+               
               </div>
             </div>
           ))}</Zoom>

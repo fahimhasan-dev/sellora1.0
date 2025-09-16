@@ -10,8 +10,8 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#6c80d813] text-gray-700 mt-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12 grid gap-10 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-[#6c80d825] text-gray-700 mt-12">
+      <div className="max-w-[85%] mx-auto px-4 sm:px-6 py-10 sm:py-12 grid gap-10 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand Section */}
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-[#6c7fd8]">
@@ -126,7 +126,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-white text-center py-4 text-xs sm:text-sm text-gray-600">
+      <div className="bg-[#6c80d813] text-center py-4 text-xs sm:text-sm text-gray-600">
         © {new Date().getFullYear()} Selora. All rights reserved.
       </div>
     </footer>

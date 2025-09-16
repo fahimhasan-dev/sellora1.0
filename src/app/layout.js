@@ -69,20 +69,25 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light" className="min-h-screen bg-background text-foreground">
+    <html
+      lang="en"
+      data-theme="light"
+      className="min-h-screen bg-background text-foreground"
+    >
       <SectionProvider>
-      <body
-        className={`${inter.variable} ${poppins.variable} antialiased bg-[#6c80d813]`}
-      >
-        <nav>
-          <Navbar></Navbar>
-        </nav>
-        <main>{children}</main>
+        <body
+          className={`${inter.variable} ${poppins.variable} antialiased bg-[#6c80d813]`}
+        >
+          <nav>
+            <Navbar></Navbar>
+          </nav>
+          <main>{children}</main>
 
-        <footer>
-          {/* <Footer></Footer> */}
-        </footer>
-      </body></SectionProvider>
+          <footer>
+            <Footer></Footer>
+          </footer>
+        </body>
+      </SectionProvider>
     </html>
   );
 }

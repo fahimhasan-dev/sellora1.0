@@ -57,7 +57,7 @@ export default function Navbar() {
           {/* Right Section */}
           <div className="flex items-center gap-4">
             {/* Search (Desktop) */}
-            <div className="hidden lg:flex items-center bg-white border border-[#6c7fd8] rounded-lg overflow-hidden">
+            <div className="hidden xl:flex items-center bg-white border border-[#6c7fd8] rounded-lg overflow-hidden">
               <input
                 type="text"
                 placeholder="Search products..."
