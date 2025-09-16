@@ -1,4 +1,5 @@
 "use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaShoppingBag, FaHamburger, FaBirthdayCake } from "react-icons/fa";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -8,14 +9,16 @@ import "swiper/css/pagination";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Imperial_Script } from "next/font/google";
+
 const imperial = Imperial_Script({
   weight: "400",
   subsets: ["latin"],
 });
+
 const banners = [
   {
     id: 1,
-    title: "Fresh ",
+    title: "Fresh",
     title2: "Organic Fruits Online",
     subtitle:
       "Get 20% off fresh seasonal fruits, carefully packed and delivered to your home.",
@@ -25,7 +28,7 @@ const banners = [
   },
   {
     id: 2,
-    title: "Hot  ",
+    title: "Hot",
     title2: "Snacks & Fast Food",
     subtitle:
       "Enjoy crispy fries and juicy burgers with buy one get one free deals.",
@@ -35,7 +38,7 @@ const banners = [
   },
   {
     id: 3,
-    title: "Sweet ",
+    title: "Sweet",
     title2: "Cakes & Desserts",
     subtitle:
       "Celebrate every moment with soft cakes and delightful desserts, baked fresh daily.",
@@ -47,53 +50,66 @@ const banners = [
 
 export default function HeroSlider() {
   return (
-    <div className="w-full h-[70vh] bg-[#6c80d825] flex items-center justify-center">
+    <div className="w-full bg-[#6c80d825]">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 7000, disableOnInteraction: false }}
         loop
-        className="w-full h-full"
+        className="w-full"
       >
         {banners.map((banner) => (
           <SwiperSlide key={banner.id}>
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center h-full px-6 md:px-56">
-              {/* Left Side Text */}
+            <div className="relative mx-auto max-w-screen-2xl min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] flex flex-col md:grid md:grid-cols-2 items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-10">
+              {/* ==== Text ==== */}
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.9, ease: "easeOut" }}
-                className="text-center md:text-left space-y-4"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="
+                  relative z-10 text-center md:text-left
+                  space-y-4 p-4 sm:p-6 md:p-0
+                "
               >
-                {" "}
-                <h1 className={` text-3xl md:text-4xl  font-bold leading-snug text-gray-900`}>
-                  <span className={`${imperial.className} text-7xl font-extrabold text-[#6c7fd8] `}>{banner.title}</span>
-                 <br/>
+                <h1 className="leading-snug font-bold text-gray-900 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+                  <span
+                    className={`${imperial.className} block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#6c7fd8]`}
+                  >
+                    {banner.title}
+                  </span>
                   {banner.title2}
                 </h1>
-                <p className="text-gray-700 text-lg">{banner.subtitle}</p>
-                <div className="flex ">
-                  {" "}
-                  <button className="mt-4 w-[50%] px-6 py-3 flex justify-center items-center gap-1  border-gray-600 rounded-xl bg-indigo-500  hover:bg-indigo-600 hover:text-lg text-white transition">
-                 <banner.icon className="inline-block mr-2 text-lg" /> {banner.button}
+
+                <p className="text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl max-w-xl mx-auto md:mx-0">
+                  {banner.subtitle}
+                </p>
+
+                <div className="flex justify-center md:justify-start">
+                  <button className="mt-4 min-w-[140px] px-5 sm:px-6 py-2.5 sm:py-3 flex items-center gap-2 rounded-xl bg-indigo-500 hover:bg-indigo-600 text-white text-sm sm:text-base md:text-lg transition">
+                    <banner.icon className="text-lg" />
+                    {banner.button}
                   </button>
                 </div>
               </motion.div>
-
-              {/* Right Side Image */}
+              {/* ==== Image ==== */}
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
+                initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.9, ease: "easeOut" }}
-                className="flex justify-center md:justify-end"
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="absolute inset-0 flex justify-center items-center md:static md:justify-end"
               >
                 <Image
                   src={banner.image}
-                  alt="banner"
-                  width={500}
-                  height={400}
-                  className="object-contain drop-shadow-lg"
+                  alt={banner.title2}
+                  width={650}
+                  height={500}
+                  priority
+                  className="
+                    w-full h-full object-contain
+                    md:w-auto md:h-auto
+                    opacity-60 md:opacity-100
+                  "
                 />
               </motion.div>
             </div>

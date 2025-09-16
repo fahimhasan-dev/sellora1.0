@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Fade } from "react-awesome-reveal";
 
@@ -54,31 +56,39 @@ const categories = [
 
 export default function ProductsCategories() {
   return (
-    <section className=" ">
-      <div className="w-[90%]  mx-auto ">
+    <section className="py-12 sm:py-16 lg:py-20 ">
+      <div className="w-[90%] mx-auto ">
         {/* Header */}
         <div className="text-center pb-10">
-          <p className="text-[#6c7fd8] font-medium">Latest collection</p>
-          <h2 className="text-3xl font-bold">Shop by category</h2>
+          <p className="text-[#6c7fd8] font-medium text-sm sm:text-base">
+           ✱  Latest collection
+          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2">
+            Shop by category
+          </h2>
         </div>
 
-        {/* Scrollable Categories */}
-        <div className="grid grid-cols-2 md:grid-cols-4  lg:grid-cols-6 xl:grid-cols-8 gap-6">
+        {/* Categories Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 sm:gap-6 md:gap-8">
           {categories.map((cat) => (
-            <Fade key={cat.name} direction="up" triggerOnce>
+            <Fade key={cat.name} direction="up" triggerOnce >
               <div
-                className={`${cat.bg} rounded-xl p-4 flex flex-col items-center shadow-sm hover:shadow-md transition`}
+                className={`${cat.bg} rounded-2xl p-3 sm:p-4 flex flex-col items-center shadow-sm hover:shadow-md transition transform hover:scale-[1.03]`}
               >
-                <div className="w-36 h-36  relative">
+                <div className="w-28 h-28 sm:w-32 sm:h-32 relative">
                   <Image
                     src={cat.img}
                     alt={cat.name}
                     fill
-                    className="object-contain px-2 "
+                    className="object-contain px-2"
                   />
                 </div>
-                <h3 className="mt-2 font-semibold text-gray-800">{cat.name}</h3>
-                <p className="text-gray-500 text-sm">Items ({cat.items})</p>
+                <h3 className="mt-2 text-sm sm:text-base font-semibold text-gray-800">
+                  {cat.name}
+                </h3>
+                <p className="text-gray-500 text-xs sm:text-sm">
+                  Items ({cat.items})
+                </p>
               </div>
             </Fade>
           ))}

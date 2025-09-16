@@ -11,11 +11,11 @@ export default async function NewProducts() {
   return (
     <section className="pb-10 max-w-[90%] mx-auto ">
       <div className="text-center mb-8">
-        <p className="text-[#6c7fd8] font-medium">Trending item</p>
-        <h2 className="text-3xl font-bold">New products</h2>
+        <p className="text-[#6c7fd8] font-medium">✱ Trending item</p>
+        <h2 className="text-3xl font-bold">Our newest products</h2>
       </div>
      
-      <div className="grid xl:grid-cols-6 xl:gap-4  gap-y-8 w-full mx-auto md:grid-cols-2">
+      <div className="grid xl:grid-cols-4 xl:gap-10  gap-y-8 w-full mx-auto md:grid-cols-2">
          <Zoom  cascade duration='600' triggerOnce >
           {products.map((product) => (
             <div key={product._id}>
