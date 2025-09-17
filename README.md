@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🥦 Selora – E-Commerce Platform for Vegetables, Fruits & Cooking Products  
 
-## Getting Started
+**Selora** is a full-stack **Next.js e-commerce application** designed to sell fresh vegetables, fruits, and cooking products.  
+It includes modern features like **authentication, protected routes, product management (CRUD), a checkout/booking flow, and a secure dashboard**.  
 
-First, run the development server:
+This project was developed as part of a **Full-Stack Next.js Assignment (4 Days)** and is fully portfolio-ready.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌐 Live Demo & Repository  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- 🚀 **Live URL** → [https://selora.vercel.app](https://selora.vercel.app)  
+- 📂 **GitHub Repository** → [https://github.com/fahimhasan-dev/sellora1.0](https://github.com/fahimhasan-dev/sellora1.0)  
+ 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Tech Stack  
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)  
+- **Backend**: Next.js API Routes (`/api`)  
+- **Database**: MongoDB + Prisma/Mongoose  
+- **Authentication**: NextAuth.js (Google OAuth +GitHub OAuth + Credentials) / JWT  
+- **UI & Styling**: Tailwind CSS + Shadcn UI (with responsive design & animations)  
+- **State & Data Fetching**: React Query (TanStack Query) / SWR  
+- **Deployment**: [Vercel](https://vercel.com/)  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ Features  
 
-## Deploy on Vercel
+### 🔐 Authentication  
+- Login & Signup via **NextAuth (Google OAuth +GitHub OAuth + Credentials)**  
+- Passwords hashed with **bcrypt** (if using credentials)  
+- Protected pages (dashboard, checkout, booking history)  
+- Conditional UI based on auth status  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🛒 E-Commerce & Landing Page  
+- Landing page with **7+ sections**: Hero, Features, Testimonials, FAQ, CTA, About, Contact  
+- SEO optimized with metadata & Open Graph tags  
+- Smooth animations (scroll reveal, hover effects, fade-in)  
+- **Public product listing pages** (vegetables, fruits, cooking essentials)  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📊 Dashboard (CRUD System)  
+- Manage products: **Create, Edit, Delete, and View**  
+- Dynamic product pages → `/product/[id]`  
+- API routes and server actions for form submissions  
+- Dashboard available only to authenticated users  
+
+### 🧾 Checkout & Booking Flow  
+- Simple **checkout/booking form** (no payment required)  
+- Orders stored securely in the database  
+- Logged-in users can view their **order/booking history**  
+
+### 🎨 Styling & UI  
+- Optimized images with **next/image**  
+- Custom typography via **next/font**  
+- Responsive across **mobile, tablet, and desktop**  
+- Consistent UI powered by **Shadcn UI + Tailwind**  
+
+### ⚡ Backend & Database  
+- REST-style API routes in `/api/`  
+- Integrated with **MongoDB** using Prisma/Mongoose  
+- Secure `.env.local` for API keys and secrets  
+
+### 🔄 Data Fetching & Optimization  
+- **Server-side rendering (SSR)** and **ISR** for products  
+- **Client-side fetching** with React Query / SWR for live updates  
+- Smart caching & revalidation  
+
+### 🛠 Advanced Features  
+- ✅ Middleware for route protection & redirects  
+- ✅ Pagination & Search filter for product lists  
+- ✅ Intercepting routes for modals (e.g., quick product view)  
+- ✅ Custom `loading.js` and `error.js`  
+
+---
+
+## 📂 Project Structure  
+
