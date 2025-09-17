@@ -9,7 +9,7 @@ This project was developed as part of a **Full-Stack Next.js Assignment (4 Days)
 
 ## 🌐 Live Demo & Repository  
 
-- 🚀 **Live URL** → [https://selora.vercel.app](https://selora.vercel.app)  
+- 🚀 **Live URL** → [https://selora1-0.vercel.app/](https://selora1-0.vercel.app/)  
 - 📂 **GitHub Repository** → [https://github.com/fahimhasan-dev/sellora1.0](https://github.com/fahimhasan-dev/sellora1.0)  
  
 
