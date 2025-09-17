@@ -5,7 +5,7 @@ import NewProducts from "@/components/products/NewProducts";
 import ProductsCategories from "@/components/products/ProductsCategories";
 import RecentPosts from "@/components/products/RecentPosts";
 import Testimonials from "@/components/products/Testimonials";
-import Image from "next/image";
+
 
 export default function Home() {
   return (

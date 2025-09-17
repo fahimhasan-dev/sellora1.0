@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Imperial_Script } from "next/font/google";
+import Link from "next/link";
 
 const imperial = Imperial_Script({
   weight: "400",
@@ -65,7 +66,7 @@ export default function HeroSlider() {
               className="
                 relative mx-auto max-w-screen-2xl
                 min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh]
-                flex flex-col md:grid md:grid-cols-2
+                flex flex-col-reverse md:grid md:grid-cols-2
                 items-center justify-center
                 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-10
               "
@@ -102,10 +103,10 @@ export default function HeroSlider() {
                 </p>
 
                 <div className="flex justify-center md:justify-start">
-                  <button className="mt-4 min-w-[120px] px-4 sm:px-5 py-2 sm:py-2.5 flex items-center gap-2 rounded-xl bg-indigo-500 hover:bg-indigo-600 text-white text-sm sm:text-base transition">
+                 <Link href={'/ProductsPage'}> <button  className="mt-4 min-w-[120px] px-4 sm:px-5 py-2 sm:py-2.5 flex items-center gap-2 rounded-xl bg-indigo-500 hover:bg-indigo-600 text-white text-sm sm:text-base transition">
                     <banner.icon className="text-base sm:text-lg" />
                     {banner.button}
-                  </button>
+                  </button></Link>
                 </div>
               </motion.div>
 

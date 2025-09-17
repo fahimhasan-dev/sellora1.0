@@ -1,4 +1,5 @@
 "use client";
+import SocialLoginButtons from "@/components/common/SocialLoginButtons";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -29,6 +30,7 @@ export default function LoginPage() {
           timer: 2000,
           showConfirmButton: false,
         }).then(() => {
+          form.reset();
           window.location.href = "/"; // redirect after success
         });
       } else {
@@ -117,7 +119,7 @@ export default function LoginPage() {
           <span className="mx-4 text-sm text-gray-500">OR</span>
           <div className="flex-grow border-t border-gray-300" />
         </div>
-
+<SocialLoginButtons></SocialLoginButtons>
         <p className="text-sm text-center text-gray-600">
           Don’t have an account?{" "}
           <Link href="/register" className="text-indigo-600 hover:underline">

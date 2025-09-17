@@ -4,11 +4,7 @@
 
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
-// https://i.ibb.co.com/vvZ83596/6-1.jpg
-// https://i.ibb.co.com/GQgmJxB4/5.jpg
-// https://i.ibb.co.com/6c7FPN2D/3.jpg
-// https://i.ibb.co.com/ZRMdLjzc/2-2.jpg
-// https://i.ibb.co.com/BKjCbJff/1-1.jpg
+
 const products = [
   {
     name: "Organic Vegetables",
@@ -85,47 +81,45 @@ export default function FeaturesCollection() {
           </h2>
         </div>
 
-        {/* Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
           {products.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 group hover:shadow-lg transition-all duration-300"
+              className="flex flex-col h-full bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 group hover:shadow-lg transition-all duration-300"
             >
-              <div className="relative">
-                {/* Image */}
-                <div className="overflow-hidden ">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={400}
-                    height={300}
-                    className="w-full h-48 object-cover rounded-t-xl transform group-hover:scale-110 transition-transform duration-500"
-                  />
+              {/* Image */}
+              <div className="overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width={400}
+                  height={300}
+                  className="w-full aspect-[4/3] object-cover rounded-t-xl transform group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-4 text-center flex flex-col flex-grow">
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {item.name}
+                </h3>
+
+                {/* Rating */}
+                <div className="flex justify-center mt-2 mb-2">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <FaStar
+                      key={i}
+                      className={`h-4 w-4 ${
+                        i < item.rating ? "text-[#6c7fd8]" : "text-gray-300"
+                      }`}
+                    />
+                  ))}
                 </div>
 
-                {/* Content */}
-                <div className="p-4 text-center ">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {item.name}
-                  </h3>
-
-                  {/* Rating */}
-                  <div className="flex justify-center mt-2 mb-2">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <FaStar
-                        key={i}
-                        className={`h-4 w-4 ${
-                          i < item.rating ? "text-[#6c7fd8]" : "text-gray-300"
-                        }`}
-                      />
-                    ))}
-                  </div>
-
-                  <p className="text-gray-600 text-sm">
-                    Starts From : ${item.price}
-                  </p>
-                </div>
+                <p className="text-gray-600 text-sm mt-auto">
+                  Starts From : ${item.price}
+                </p>
               </div>
             </div>
           ))}

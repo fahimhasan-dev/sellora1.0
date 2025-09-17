@@ -45,7 +45,7 @@ const posts = [
 export default function RecentPosts() {
   return (
     <section className="relative py-16">
-      <div className="max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[85%]  mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-12 gap-6 sm:gap-0">
           <div>
@@ -62,11 +62,11 @@ export default function RecentPosts() {
         </div>
 
         {/* Posts Grid */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 xl:grid-cols-2">
           {posts.map((post) => (
             <div
               key={post.id}
-              className="flex p-6 flex-col sm:flex-row bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-md transition-all"
+              className="flex sm:p-6 flex-col sm:flex-row bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-md transition-all"
             >
               {/* Image */}
               <div className="relative w-full sm:w-40 md:w-52 h-48 sm:h-auto flex-shrink-0">

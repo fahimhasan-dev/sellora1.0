@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { registerUser } from "../actions/auth/registerUser";
+import SocialLoginButtons from "@/components/common/SocialLoginButtons";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -85,7 +86,10 @@ export default function RegisterPage() {
         <form onSubmit={handleRegister} className="space-y-4">
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-gray-700 text-sm font-medium">
+            <label
+              htmlFor="name"
+              className="block text-gray-700 text-sm font-medium"
+            >
               Full Name
             </label>
             <input
@@ -99,7 +103,10 @@ export default function RegisterPage() {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-gray-700 text-sm font-medium">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 text-sm font-medium"
+            >
               Email
             </label>
             <input
@@ -113,7 +120,10 @@ export default function RegisterPage() {
 
           {/* Password */}
           <div>
-            <label htmlFor="password" className="block text-gray-700 text-sm font-medium">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 text-sm font-medium"
+            >
               Password
             </label>
             <div className="relative">
@@ -151,7 +161,7 @@ export default function RegisterPage() {
           <span className="mx-4 text-sm text-gray-500">OR</span>
           <div className="flex-grow border-t border-gray-300" />
         </div>
-
+        <SocialLoginButtons></SocialLoginButtons>
         <p className="text-sm text-center text-gray-600">
           Already have an account?{" "}
           <Link href="/login" className="text-indigo-600 hover:underline">

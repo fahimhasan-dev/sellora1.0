@@ -111,7 +111,7 @@ export default function ProductsPage() {
       {/* Search */}
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:mt-10 lg:grid-cols-6 gap-8 px-6 md:px-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:mt-10 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-6 md:px-16">
         {filtered.length > 0 ? (
           filtered.map((product) => (
             <div
